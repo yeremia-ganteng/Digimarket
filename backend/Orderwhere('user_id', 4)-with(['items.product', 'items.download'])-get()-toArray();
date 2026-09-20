@@ -1,0 +1,59 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8714
+    [34mall[39m: [
+      [34;4mApp\Models\Order[39;24m {#8725
+        [34mid[39m: [35m1[39m,
+        [34muser_id[39m: [35m2[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8726
+        [34mid[39m: [35m2[39m,
+        [34muser_id[39m: [35m2[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8723
+        [34mid[39m: [35m3[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8722
+        [34mid[39m: [35m4[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8721
+        [34mid[39m: [35m5[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8720
+        [34mid[39m: [35m6[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8719
+        [34mid[39m: [35m7[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8718
+        [34mid[39m: [35m8[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8717
+        [34mid[39m: [35m9[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8716
+        [34mid[39m: [35m10[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+      [34;4mApp\Models\Order[39;24m {#8715
+        [34mid[39m: [35m11[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+      },
+    ],
+  }

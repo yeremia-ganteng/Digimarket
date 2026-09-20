@@ -1,0 +1,158 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8412
+    [34mall[39m: [
+      [34;4mApp\Models\Order[39;24m {#8405
+        [34mid[39m: [35m2[39m,
+        [34muser_id[39m: [35m2[39m,
+        [34mtotal[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+        [34mpayment_ref[39m: [32m"[39m[32mORDER-NI5CZCZAYK[39m[32m"[39m,
+        [34mcreated_at[39m: [32m"[39m[32m2026-08-17 04:09:01[39m[32m"[39m,
+        [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:25:48[39m[32m"[39m,
+        [34mitems[39m: [34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8850
+          [34mall[39m: [
+            [34;4mApp\Models\OrderItem[39;24m {#8844
+              [34mid[39m: [35m2[39m,
+              [34morder_id[39m: [35m2[39m,
+              [34mproduct_id[39m: [35m1[39m,
+              [34mprice[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+              [34mcreated_at[39m: [32m"[39m[32m2026-08-17 04:09:01[39m[32m"[39m,
+              [34mupdated_at[39m: [32m"[39m[32m2026-08-17 04:09:01[39m[32m"[39m,
+              [34mdownload[39m: [36mnull[39m,
+            },
+          ],
+        },
+      },
+      [34;4mApp\Models\Order[39;24m {#8404
+        [34mid[39m: [35m3[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mtotal[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+        [34mpayment_ref[39m: [32m"[39m[32mORDER-45LGJ9DPMC[39m[32m"[39m,
+        [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:01:23[39m[32m"[39m,
+        [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:25:48[39m[32m"[39m,
+        [34mitems[39m: [34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8414
+          [34mall[39m: [
+            [34;4mApp\Models\OrderItem[39;24m {#8156
+              [34mid[39m: [35m3[39m,
+              [34morder_id[39m: [35m3[39m,
+              [34mproduct_id[39m: [35m1[39m,
+              [34mprice[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+              [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:01:23[39m[32m"[39m,
+              [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:01:23[39m[32m"[39m,
+              [34mdownload[39m: [36mnull[39m,
+            },
+          ],
+        },
+      },
+      [34;4mApp\Models\Order[39;24m {#8407
+        [34mid[39m: [35m4[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mtotal[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+        [34mpayment_ref[39m: [32m"[39m[32mORDER-K38JXL8EGB[39m[32m"[39m,
+        [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:01:25[39m[32m"[39m,
+        [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:25:48[39m[32m"[39m,
+        [34mitems[39m: [34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8849
+          [34mall[39m: [
+            [34;4mApp\Models\OrderItem[39;24m {#8403
+              [34mid[39m: [35m4[39m,
+              [34morder_id[39m: [35m4[39m,
+              [34mproduct_id[39m: [35m1[39m,
+              [34mprice[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+              [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:01:25[39m[32m"[39m,
+              [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:01:25[39m[32m"[39m,
+              [34mdownload[39m: [36mnull[39m,
+            },
+          ],
+        },
+      },
+      [34;4mApp\Models\Order[39;24m {#8408
+        [34mid[39m: [35m5[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mtotal[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+        [34mpayment_ref[39m: [32m"[39m[32mORDER-VOA98HJ4FI[39m[32m"[39m,
+        [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:03:42[39m[32m"[39m,
+        [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:25:48[39m[32m"[39m,
+        [34mitems[39m: [34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8854
+          [34mall[39m: [
+            [34;4mApp\Models\OrderItem[39;24m {#8406
+              [34mid[39m: [35m5[39m,
+              [34morder_id[39m: [35m5[39m,
+              [34mproduct_id[39m: [35m1[39m,
+              [34mprice[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+              [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:03:42[39m[32m"[39m,
+              [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:03:42[39m[32m"[39m,
+              [34mdownload[39m: [36mnull[39m,
+            },
+          ],
+        },
+      },
+      [34;4mApp\Models\Order[39;24m {#8409
+        [34mid[39m: [35m6[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mtotal[39m: [32m"[39m[32m25000.00[39m[32m"[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+        [34mpayment_ref[39m: [32m"[39m[32mORDER-T4NUX5XG2K[39m[32m"[39m,
+        [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:06:39[39m[32m"[39m,
+        [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:25:48[39m[32m"[39m,
+        [34mitems[39m: [34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8851
+          [34mall[39m: [
+            [34;4mApp\Models\OrderItem[39;24m {#8855
+              [34mid[39m: [35m6[39m,
+              [34morder_id[39m: [35m6[39m,
+              [34mproduct_id[39m: [35m2[39m,
+              [34mprice[39m: [32m"[39m[32m25000.00[39m[32m"[39m,
+              [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:06:39[39m[32m"[39m,
+              [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:06:39[39m[32m"[39m,
+              [34mdownload[39m: [36mnull[39m,
+            },
+          ],
+        },
+      },
+      [34;4mApp\Models\Order[39;24m {#8410
+        [34mid[39m: [35m7[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mtotal[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+        [34mpayment_ref[39m: [32m"[39m[32mORDER-7WDGOSWNJ5[39m[32m"[39m,
+        [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:09:29[39m[32m"[39m,
+        [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:25:48[39m[32m"[39m,
+        [34mitems[39m: [34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8857
+          [34mall[39m: [
+            [34;4mApp\Models\OrderItem[39;24m {#8417
+              [34mid[39m: [35m7[39m,
+              [34morder_id[39m: [35m7[39m,
+              [34mproduct_id[39m: [35m1[39m,
+              [34mprice[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+              [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:09:29[39m[32m"[39m,
+              [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:09:29[39m[32m"[39m,
+              [34mdownload[39m: [36mnull[39m,
+            },
+          ],
+        },
+      },
+      [34;4mApp\Models\Order[39;24m {#8411
+        [34mid[39m: [35m8[39m,
+        [34muser_id[39m: [35m4[39m,
+        [34mtotal[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+        [34mstatus[39m: [32m"[39m[32mpaid[39m[32m"[39m,
+        [34mpayment_ref[39m: [32m"[39m[32mORDER-56GPHJMPYP[39m[32m"[39m,
+        [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:12:30[39m[32m"[39m,
+        [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:25:48[39m[32m"[39m,
+        [34mitems[39m: [34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8852
+          [34mall[39m: [
+            [34;4mApp\Models\OrderItem[39;24m {#8419
+              [34mid[39m: [35m8[39m,
+              [34morder_id[39m: [35m8[39m,
+              [34mproduct_id[39m: [35m1[39m,
+              [34mprice[39m: [32m"[39m[32m50000.00[39m[32m"[39m,
+              [34mcreated_at[39m: [32m"[39m[32m2026-08-17 11:12:30[39m[32m"[39m,
+              [34mupdated_at[39m: [32m"[39m[32m2026-08-17 11:12:30[39m[32m"[39m,
+              [34mdownload[39m: [36mnull[39m,
+            },
+          ],
+        },
+      },
+    ],
+  }

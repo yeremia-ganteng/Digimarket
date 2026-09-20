@@ -1,0 +1,73 @@
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: digimarket
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-psecret"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - digimarket
+
+  redis:
+    image: redis:alpine
+    container_name: digimarket_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - digimarket
+
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env.docker
+    volumes:
+      - ./backend:/var/www
+      - backend_vendor:/var/www/vendor
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - digimarket
+
+  backend-nginx:
+    image: nginx:alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./backend:/var/www
+      - ./docker/nginx/conf.d/backend.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend
+    networks:
+      - digimarket
+
+  frontend:
+    build: ./frontend
+    env_file:
+      - ./frontend/.env.docker
+    ports:
+      - "5173:80"
+    networks:
+      - digimarket
+
+volumes:
+  mysql_data:
+  backend_vendor:
+  redis_data:
+
+networks:
+  digimarket:
+    driver: bridge
