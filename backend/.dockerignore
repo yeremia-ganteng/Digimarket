@@ -1,5 +1,4 @@
 public/storage
-storage/app/public
 vendor/
 node_modules/
 .env
