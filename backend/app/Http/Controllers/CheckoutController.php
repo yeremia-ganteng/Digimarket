@@ -21,6 +21,41 @@ class CheckoutController extends Controller
         Config::$is3ds = config('midtrans.is_3ds');
     }
 
+    /**
+     * Kurangi stok produk secara atomic, termasuk stok per-varian ukuran
+     * jika produk memiliki kolom `sizes` (JSON).
+     */
+    private function decrementProductStock(Product $product, int $qty, ?string $size = null)
+    {
+        $sizes = $product->sizes;
+        if (is_string($sizes)) {
+            $sizes = json_decode($sizes, true);
+        }
+
+        if (is_array($sizes) && !empty($sizes) && $size) {
+            $updated = false;
+            foreach ($sizes as $index => $s) {
+                if (is_array($s) || is_object($s)) {
+                    $s = (array) $s;
+                    $sName = $s['name'] ?? $s['size'] ?? $s['label'] ?? null;
+                    if ($sName !== null && strtolower((string) $sName) === strtolower($size)) {
+                        $currentStock = (int) ($s['stock'] ?? 0);
+                        $s['stock'] = max(0, $currentStock - $qty);
+                        $sizes[$index] = $s;
+                        $updated = true;
+                        break;
+                    }
+                }
+            }
+            if ($updated) {
+                $product->sizes = json_encode($sizes);
+            }
+        }
+
+        $product->stock = max(0, $product->stock - $qty);
+        $product->save();
+    }
+
     public function store(Request $request)
     {
         // 1. Validasi Input Keduanya (Direct maupun Cart Checkout)
@@ -74,8 +109,8 @@ class CheckoutController extends Controller
                         'size'       => $size,
                     ]);
 
-                    // Kurangi stok produk secara atomic
-                    $product->decrement('stock', $qty);
+                    // Kurangi stok produk (kolom utama + varian ukuran) secara atomic
+                    $this->decrementProductStock($product, $qty, $size);
 
                     return $order;
                 });
@@ -135,8 +170,8 @@ class CheckoutController extends Controller
                             'size'       => $itemSize,
                         ]);
 
-                        // Kurangi stok masing-masing produk
-                        $item->product->decrement('stock', $itemQty);
+                        // Kurangi stok produk (kolom utama + varian ukuran)
+                        $this->decrementProductStock($item->product, $itemQty, $itemSize);
                     }
 
                     // Hapus isi keranjang setelah transaksi selesai

@@ -86,20 +86,46 @@ class PaymentWebhookController extends Controller
         }
     }
 
-    private function markOrderAsFailed(Order $order)
-    {
-        // Pastikan hanya mengembalikan stok jika status sebelumnya BUKAN 'failed' dan BUKAN 'paid'
-        if (!in_array(strtolower($order->status), ['failed', 'paid'])) {
-            $order->loadMissing('items.product');
+private function markOrderAsFailed(Order $order)
+{
+    // Pastikan hanya mengembalikan stok jika status sebelumnya BUKAN 'failed' dan BUKAN 'paid'
+    if (!in_array(strtolower($order->status), ['failed', 'paid'])) {
+        $order->loadMissing('items.product');
 
-            // Pengembalian stok produk secara aman
-            foreach ($order->items as $item) {
-                if ($item->product) {
-                    $item->product->increment('stock', $item->qty ?? $item->quantity ?? 1);
+        // Pengembalian stok produk secara aman (kolom utama + varian ukuran)
+        foreach ($order->items as $item) {
+            if ($item->product) {
+                $this->incrementProductStock($item->product, $item->qty ?? $item->quantity ?? 1, $item->size);
+            }
+        }
+
+        $order->update(['status' => 'failed']);
+    }
+}
+
+private function incrementProductStock(\App\Models\Product $product, int $qty, ?string $size = null)
+{
+    $sizes = $product->sizes;
+    if (is_string($sizes)) {
+        $sizes = json_decode($sizes, true);
+    }
+
+    if (is_array($sizes) && !empty($sizes) && $size) {
+        foreach ($sizes as $index => $s) {
+            if (is_array($s) || is_object($s)) {
+                $s = (array) $s;
+                $sName = $s['name'] ?? $s['size'] ?? $s['label'] ?? null;
+                if ($sName !== null && strtolower((string) $sName) === strtolower($size)) {
+                    $currentStock = (int) ($s['stock'] ?? 0);
+                    $s['stock'] = $currentStock + $qty;
+                    $sizes[$index] = $s;
+                    $product->sizes = json_encode($sizes);
+                    break;
                 }
             }
-
-            $order->update(['status' => 'failed']);
         }
     }
+
+    $product->increment('stock', $qty);
+}
 }
