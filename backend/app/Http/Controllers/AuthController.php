@@ -15,27 +15,27 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         // FIX SECURITY: Penggunaan aturan Password yang lebih kuat & terstandar
-        $validated = $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|max:255|unique:users,email',
-            'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()],
-            'role'     => 'required|in:buyer,seller',
-        ]);
+    // FIX SECURITY: Penggunaan aturan Password yang lebih kuat & terstandar
+    $validated = $request->validate([
+        'name'     => 'required|string|max:255',
+        'email'    => 'required|string|email|max:255|unique:users,email',
+        'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()],
+    ]);
 
-        $user = User::create([
-            'name'     => $validated['name'],
-            'email'    => $validated['email'],
-            'password' => Hash::make($validated['password']),
-            'role'     => $validated['role'],
-        ]);
+    $user = User::create([
+        'name'     => $validated['name'],
+        'email'    => $validated['email'],
+        'password' => Hash::make($validated['password']),
+        'role'     => 'buyer', // FIX SECURITY: role selalu default 'buyer', tidak bisa diatur dari request publik
+    ]);
 
-        $token = $user->createToken('auth_token')->plainTextToken;
+    $token = $user->createToken('auth_token')->plainTextToken;
 
-        return response()->json([
-            'user'  => $user,
-            'token' => $token,
-        ], 201);
-    }
+    return response()->json([
+        'user'  => $user,
+        'token' => $token,
+    ], 201);
+}
 
     public function login(Request $request)
     {
