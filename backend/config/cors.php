@@ -11,6 +11,9 @@ return [
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
+    
+    'allowed_origins_patterns' => ['*'],
+
 
     // Mengizinkan asal request dari localhost port berapa pun (termasuk 5173, 5174, dll)
     'allowed_origins' => [
