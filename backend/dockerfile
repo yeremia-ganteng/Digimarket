@@ -17,4 +17,4 @@ RUN php artisan storage:link
 
 EXPOSE 8080
 
-CMD php -S 0.0.0.0:$PORT -t public
+CMD echo "Starting server on port $PORT" && php -S 0.0.0.0:$PORT -t public
