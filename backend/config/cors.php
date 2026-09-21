@@ -12,7 +12,7 @@ return [
 
     'allowed_methods' => ['*'],
     
-    'allowed_origins_patterns' => ['*'],
+    'allowed_origins' => ['*'],
 
 
     // Mengizinkan asal request dari localhost port berapa pun (termasuk 5173, 5174, dll)
