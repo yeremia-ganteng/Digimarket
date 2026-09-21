@@ -14,9 +14,10 @@ const getImageUrl = (imagePath) => {
     return imagePath;
   }
 
-  const backendBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
   const cleanPath = imagePath.replace(/^\/?(storage\/)?/, '');
-  return `${backendBaseUrl}/storage/${cleanPath}`;
+  const rawBaseUrl = import.meta.env.VITE_STORAGE_BASE_URL || 'http://localhost:8000/storage';
+  const baseUrl = rawBaseUrl.replace(/\/$/, '');
+  return `${baseUrl}/${cleanPath}`;
 };
 
 // Helper untuk mengambil harga berdasarkan varian ukuran dari catalog/item keranjang
