@@ -362,11 +362,11 @@ class ProductSeeder extends Seeder
             ],
         ];
 
-        foreach ($products as $prod) {
-            Product::firstOrCreate(
-                ['name' => $prod['name']],
-                $prod
-            );
-        }
+foreach ($products as $prod) {
+    Product::updateOrCreate(
+        ['name' => $prod['name']], // Acuan pencarian berdasarkan nama
+        $prod                      // Data yang di-update (termasuk thumbnail & file_path baru)
+    );
+}
     }
 }
