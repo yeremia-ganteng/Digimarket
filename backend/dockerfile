@@ -1,6 +1,5 @@
 FROM php:8.4-fpm
 
-# Install dependencies sistem + Nginx + Supervisor
 RUN apt-get update && apt-get install -y \
     git curl libpng-dev libonig-dev libxml2-dev zip unzip \
     nginx supervisor gettext-base \
@@ -19,11 +18,6 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 RUN php artisan storage:link
 
-# Optimasi cache Laravel untuk production
-RUN php artisan config:cache
-RUN php artisan route:cache
-
-# Copy konfigurasi Nginx & Supervisor
 COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/start.sh /start.sh
