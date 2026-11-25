@@ -5,7 +5,7 @@ services:
     plan: free
     region: singapore
     rootDir: backend
-    dockerfilePath: ./dockerfile
+    dockerfilePath: ./Dockerfile
     healthCheckPath: /up
     autoDeploy: true
     envVars:

@@ -20,6 +20,7 @@ RUN php artisan storage:link
 
 COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/php-fpm.conf /usr/local/etc/php-fpm.d/zz-digimarket.conf
 COPY docker/start.sh /start.sh
 RUN chmod +x /start.sh
 
