@@ -15,7 +15,7 @@ WORKDIR /var/www
 # Midtrans keys) diisi lewat environment variables platform.
 ENV APP_ENV=production \
     APP_DEBUG=false \
-    APP_URL=https://digimarket-api.containers.snapdeploy.app \
+    APP_URL=https://digimarket-api-e7c74.containers.snapdeploy.app \
     APP_LOCALE=en \
     APP_FALLBACK_LOCALE=en \
     BCRYPT_ROUNDS=12 \
