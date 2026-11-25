@@ -39,8 +39,8 @@ Platform marketplace digital & fisik — tempat penjual (seller) memasarkan prod
 ### Infrastruktur & Deployment
 | Layer | Platform |
 |---|---|
-| Backend (API) | [Railway](https://railway.app) — Nginx + PHP-FPM via Supervisor |
-| Database | [TiDB Cloud](https://tidbcloud.com) |
+| Backend (API) | [SnapDeploy](https://snapdeploy.dev) — Nginx + PHP-FPM via Supervisor |
+| Database | [TiDB Cloud](https://tidbcloud.com) (MySQL-compatible) |
 | Frontend | [Vercel](https://vercel.com) |
 | Payment Gateway | [Midtrans](https://midtrans.com) (Sandbox/Production) |
 
@@ -157,12 +157,22 @@ VITE_STORAGE_BASE_URL=      # contoh: https://api.digimarket.app/storage
 ---
 
 ## 📦 Deployment
-Vercel (Frontend) → Railway (Backend/Nginx+PHP-FPM) → TiDB Cloud (Database)
+Vercel (Frontend) → SnapDeploy (Backend/Nginx+PHP-FPM) → TiDB Cloud (Database)
 ↓
 Midtrans (Payment)
 
+**Live URLs**
 
-Backend menjalankan **Nginx + PHP-FPM** dikelola oleh **Supervisor** dalam satu container Docker untuk performa production yang optimal, menggantikan `php artisan serve` yang hanya cocok untuk development.
+| Layer | URL |
+|---|---|
+| Frontend | https://digimarket-six.vercel.app/ |
+| Backend API | https://digimarket-api-e7c74.containers.snapdeploy.app/api |
+| Storage (gambar) | https://digimarket-api-e7c74.containers.snapdeploy.app/storage |
+| Health check | https://digimarket-api-e7c74.containers.snapdeploy.app/up |
+
+Backend menjalankan **Nginx + PHP-FPM** dikelola oleh **Supervisor** dalam satu container Docker untuk performa production yang optimal, menggantikan `php artisan serve` yang hanya cocok untuk development. Dockerfile di root repository digunakan SnapDeploy; environment variable non-rahasia ditanam di Dockerfile, sedangkan nilai rahasia (`APP_KEY`, `DB_PASSWORD`, Midtrans keys) diisi di dashboard SnapDeploy.
+
+> Catatan: free tier SnapDeploy menghentikan container setelah ~15 menit tanpa trafik. Kunjungan pertama setelah itu membutuhkan ±60–90 detik untuk bangun.
 
 Webhook pembayaran Midtrans terdaftar ke:
 
